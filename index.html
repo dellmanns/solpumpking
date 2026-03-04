@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Open Model Toolkit</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="hero">
+      <nav class="nav container">
+        <div class="brand">Open Model Toolkit</div>
+        <a class="button ghost" href="#tools">Explore Tools</a>
+      </nav>
+      <div class="container hero-content">
+        <p class="pill">100% Free · Runs Locally</p>
+        <h1>Free AI toolbox that actually runs.</h1>
+        <p class="subtitle">
+          Includes working demo tools, including Nano Banana Pro2 and Motion Control 2.6,
+          with fully free access in this prototype.
+        </p>
+        <div class="hero-actions">
+          <a class="button primary" href="#tools">Use Free Tools</a>
+          <a class="button ghost" href="#playground">Open Playground</a>
+        </div>
+      </div>
+    </header>
+
+    <main class="container">
+      <section id="tools" class="section">
+        <div class="section-head">
+          <h2>Tool Library</h2>
+          <p>All tools below are enabled in this build.</p>
+        </div>
+        <div id="toolGrid" class="tool-grid"></div>
+      </section>
+
+      <section id="playground" class="section">
+        <div class="section-head">
+          <h2>Interactive Playground</h2>
+          <p>Try each free tool directly in-browser.</p>
+        </div>
+
+        <div class="tabs" role="tablist" aria-label="Tool tabs">
+          <button class="tab active" data-tab="promptTab" role="tab">Prompt Refiner</button>
+          <button class="tab" data-tab="bananaTab" role="tab">Nano Banana Pro2</button>
+          <button class="tab" data-tab="motionTab" role="tab">Motion Control 2.6</button>
+        </div>
+
+        <div class="tab-panels">
+          <article id="promptTab" class="card tab-panel active">
+            <label for="rawPrompt">Your raw prompt</label>
+            <textarea id="rawPrompt" rows="6" placeholder="e.g., write a launch plan for my product"></textarea>
+            <button id="refineBtn" class="button primary" type="button">Refine Prompt</button>
+            <label for="refinedPrompt">Refined output</label>
+            <textarea id="refinedPrompt" rows="8" readonly></textarea>
+          </article>
+
+          <article id="bananaTab" class="card tab-panel">
+            <p class="helper">Nano Banana Pro2 (free): converts plain text ideas into structured creative briefs.</p>
+            <label for="bananaIdea">Idea</label>
+            <input id="bananaIdea" type="text" placeholder="e.g., a fun campaign for a healthy snack" />
+            <button id="bananaBtn" class="button primary" type="button">Generate Brief</button>
+            <label for="bananaOut">Brief</label>
+            <textarea id="bananaOut" rows="8" readonly></textarea>
+          </article>
+
+          <article id="motionTab" class="card tab-panel">
+            <p class="helper">Motion Control 2.6 (free): create a reusable animation JSON preset.</p>
+            <div class="motion-grid">
+              <label>Style
+                <select id="motionStyle">
+                  <option value="smooth-pan">Smooth Pan</option>
+                  <option value="cinematic-zoom">Cinematic Zoom</option>
+                  <option value="orbit">Orbit</option>
+                </select>
+              </label>
+              <label>Duration (seconds)
+                <input id="motionDuration" type="number" min="1" max="30" value="8" />
+              </label>
+              <label>Intensity
+                <input id="motionIntensity" type="range" min="1" max="10" value="6" />
+              </label>
+            </div>
+            <button id="motionBtn" class="button primary" type="button">Build Motion JSON</button>
+            <label for="motionOut">Motion preset</label>
+            <textarea id="motionOut" rows="10" readonly></textarea>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="container">Original implementation. Free demo features are intentionally enabled.</div>
+    </footer>
+
+    <script src="app.js"></script>
+  </body>
+</html>
